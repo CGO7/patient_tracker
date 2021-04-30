@@ -19,6 +19,10 @@ Surgeon.init(
       type: DataTypes.STRING(15),
       allowNull: false,
     },
+    surgery_id: {
+      references: 'service',
+      key: 'id',
+    },
   },
   {
     sequelize,
