@@ -11,7 +11,7 @@ Service.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    description: {
+    Surgery_Type: {
       type: DataTypes.STRING,
     },
     estimated_time: {
