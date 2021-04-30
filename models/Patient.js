@@ -47,12 +47,13 @@ Patient.init(
     Insurance: {
       type: DataTypes.STRING,
     },
-    Surgery_Type: {
-      type: DataTypes.STRING,
+    surgery_id: {
+      references: 'service',
+      key: 'id',
     },
     doctor_id: {
-        references: 'doctor',
-        key: 'id',
+      references: 'doctor',
+      key: 'id',
     },
   },
   {
