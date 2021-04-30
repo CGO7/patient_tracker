@@ -41,7 +41,15 @@ Patient.init(
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
-
+    Drug_Allergies: {
+      type: DataTypes.STRING,
+    },
+    Insurance: {
+      type: DataTypes.STRING,
+    },
+    Surgery_Type: {
+      type: DataTypes.STRING,
+    },
     doctor_id: {
         references: 'doctor',
         key: 'id',
