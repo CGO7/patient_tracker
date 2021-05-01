@@ -56,7 +56,7 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     include: [
-       {
+      {
         model: Room,
         attributes: ['id', 'type']
       },
@@ -170,20 +170,20 @@ router.delete('/:id', (req, res) => {
   // delete one patient by its `id` value
   Patient.destroy({
     where: {
-        id: req.params.id
+      id: req.params.id
     }
   })
     .then(dbPatientData => {
-        if (!dbPatientData) {
-            res.status(404).json({ message: 'No patient with this id found'});
-            return;
-        }
-        res.json(dbPatientData);
-  })
+      if (!dbPatientData) {
+        res.status(404).json({ message: 'No patient with this id found'});
+        return;
+      }
+      res.json(dbPatientData);
+})
     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-  });
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
