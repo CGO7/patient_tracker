@@ -1,37 +1,37 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Room extends Model {}
+class Nurse extends Model {}
 
-Room.init(
+Nurse.init(
   {
-    room_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    room_number: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    room_type: {
-      type: DataTypes.STRING,
+    phone_number: {
+      type: DataTypes.STRING(15),
       allowNull: false,
     },
-    room_status: {
-      type: DataTypes.BOOLEAN,  // occupied or not?
-      allowNull: false,
+    surgery_id: {
+      references: 'service',
+      key: 'id',
     },
-    // might need patient_id as fk in here?
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'room',
+    modelName: 'nurse',
   }
 );
 
-module.exports = Room;
+module.exports = Nurse;
+ 
