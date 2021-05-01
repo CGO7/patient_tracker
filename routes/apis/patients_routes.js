@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Patient, Doctor, Service, Lab, Room } = require('../../models');
+const { Room, Surgeon, Service, Nurse, RadTech, SurgicalTech, TurnoverTeam  } = require('../../models');
 
 // The `/api/patients endpoint
 
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         attributes: ['id', 'type']
       },
       {
-        model: Doctor,
+        model: Surgeon,
         attributes: ['id', 'name']
       },
       {
@@ -22,9 +22,22 @@ router.get('/', (req, res) => {
         attributes: ['id','description', 'estimated_time']   
       },
       {
-        model: Lab,
+        model: Nurse,
         attributes: ['id', 'blood', 'urine']
-      }
+      },
+      { 
+        model: RadTech,
+        attributes: ['', '']
+      },
+      {
+        model: SurgicalTech,
+        attributes: ['','']
+      },
+      {
+        model: TurnoverTeam,
+        attributes: ['', '']
+      },
+
     ]
   })
     .then(dbPatientData => res.json(dbPatientData))

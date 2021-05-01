@@ -1,20 +1,24 @@
 const router = require('express').Router();
-const { Doctor, Patient } = require('../../models');
+const { Personnel, Patient, Room } = require('../../models');
 
-// The `/api/doctors` endpoint
+// The `/api/Personnels` endpoint
 
 router.get('/', (req, res) => {
-  // find all docs
+  // find all personnel
   // be sure to include its associated Patients
-  Doctor.findAll({
+  Personnel.findAll({
     include: [
       {
         model: Patient,
         attributes: ['id', 'first_name', 'last_name']
+      },
+      {
+        model: Room,
+        attributes: ['', '']
       }
     ]
   })
-    .then(dbDoctorData => res.json(dbDoctorData))
+    .then(dbPersonnelData => res.json(dbPersonnelData))
     .catch(err => { 
       console.log(err);
       res.status(500).json(err);
@@ -23,10 +27,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // find one doctor by its `id` value
+  // find one Personnel by its `id` value
   // be sure to include its associated Patients
   // 13.2 object relational mapping day 2 bookroutes
-  Doctors.findOne({
+  Personnels.findOne({
     where: {
       id: req.params.id
     },
@@ -34,15 +38,19 @@ router.get('/:id', (req, res) => {
       {
         model: Patient,
         attributes: ['id', 'first_name', 'last_name']
+      },
+      {
+        model: Room,
+        attributes: ['', '']
       }
     ]
   })
-    .then(dbDoctorData => {
-      if (!dbDoctorData) {
-        res.status(404).json({ message: 'No doctor with this id found'}); 
+    .then(dbPersonnelData => {
+      if (!dbPersonnelData) {
+        res.status(404).json({ message: 'No Personnel with this id found'}); 
         return; 
       }
-      res.json(dbDoctorData);
+      res.json(dbPersonnelData);
     })
     .catch(err => {
       console.log(err);
@@ -51,12 +59,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // create a new doctor
-  Doctor.create({
-    doctor_name: req.body.doctor_name,
-    doctor_phone: req.body.doctor_phone
+  // create a new Personnel
+  Personnel.create({
+    Personnel_name: req.body.Personnel_name,
+    Personnel_phone: req.body.Personnel_phone
   })
-    .then(dbDoctorData => res.json(dbDoctorData))
+    .then(dbPersonnelData => res.json(dbPersonnelData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -64,18 +72,18 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // update a doctor by its `id` value
-  Doctor.update(req.body, {
+  // update a Personnel by its `id` value
+  Personnel.update(req.body, {
     where: {
         id: req.params.id
     }
   })
-    .then(dbDoctorData => {
-        if (!dbDoctorData[0]) {
+    .then(dbPersonnelData => {
+        if (!dbPersonnelData[0]) {
             res.status(404).json({ message: 'No category with this id found'});
             return;
         }
-        res.json(dbDoctorData);
+        res.json(dbPersonnelData);
   })
     .catch(err => {
         console.log(err); 
@@ -85,17 +93,17 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
-  Doctor.destroy({
+  Personnel.destroy({
     where: {
         id: req.params.id
     }
   })
-    .then(dbDoctorData => {
-        if (!dbDoctorData) {
-            res.status(404).json({ message: 'No doctor with this id found'});
+    .then(dbPersonnelData => {
+        if (!dbPersonnelData) {
+            res.status(404).json({ message: 'No Personnel with this id found'});
             return;
         }
-        res.json(dbDoctorData);
+        res.json(dbPersonnelData);
   })
     .catch(err => {
         console.log(err);
