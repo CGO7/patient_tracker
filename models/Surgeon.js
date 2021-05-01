@@ -29,7 +29,7 @@ Surgeon.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'doctor',
+    modelName: 'surgeon',
   }
 );
 
