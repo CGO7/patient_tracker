@@ -85,9 +85,8 @@ router.post('/', (req, res) => {
     age: req.body.age,
     gender: req.body.gender,
     PersonnelIds: req.body.Personnel_id,// dropdown??
-    //roomIds: req.body.room_id,
-    //serviceId: req.body.service_id,
-    //labId: req.body.lab_id
+    roomIds: req.body.room_id,
+    serviceId: req.body.service_id,
     //referece data
     //form input map into body props
   })

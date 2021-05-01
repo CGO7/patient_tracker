@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Patient,
-        attributes: ['id', 'first_name', 'last_name', 'DOB']
+        attributes: ['id', 'first_name', 'last_name', 'age']
       }
       // {
       //   model: Room,
@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Patient,
-        attributes: ['id', 'first_name', 'last_name']
+        attributes: ['id', 'first_name', 'last_name', 'age']
       }
       // {
       //   model: Room,
