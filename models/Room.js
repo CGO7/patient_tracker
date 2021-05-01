@@ -11,6 +11,10 @@ Room.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    room_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     room_type: {
       type: DataTypes.STRING,
       allowNull: false,
