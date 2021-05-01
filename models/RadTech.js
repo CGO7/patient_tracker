@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Lab extends Model {}
-// not entirely sure about this Model
-Lab.init(
+class RadTech extends Model {}
+
+RadTech.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,16 +11,17 @@ Lab.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    date: {
-        type: DataTypes.DATE,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    patient_id: {
-      references: 'patient',
+    phone_number: {
+      type: DataTypes.STRING(15),
+      allowNull: false,
+    },
+    surgery_id: {
+      references: 'service',
       key: 'id',
-    },
-    doctor_id: {
-        references: 'doctor',
-        key: 'id',
     },
   },
   {
@@ -28,8 +29,8 @@ Lab.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'lab',
+    modelName: 'RadTech',
   }
 );
 
-module.exports = Lab;
+module.exports = RadTech;

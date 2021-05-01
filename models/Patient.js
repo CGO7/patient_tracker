@@ -41,12 +41,19 @@ Patient.init(
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
-    patient_type: {
-        type: DataTypes.STRING(),   // could also be boolean for in/out patient?
+    Drug_Allergies: {
+      type: DataTypes.STRING,
+    },
+    Insurance: {
+      type: DataTypes.STRING,
+    },
+    surgery_id: {
+      references: 'service',
+      key: 'id',
     },
     doctor_id: {
-        references: 'doctor',
-        key: 'id',
+      references: 'doctor',
+      key: 'id',
     },
   },
   {

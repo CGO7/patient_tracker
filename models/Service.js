@@ -11,11 +11,11 @@ Service.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    description: {
+    Surgery_Type: {
       type: DataTypes.STRING,
     },
-    estimated_time: {
-      type: DataTypes.STRING,   // or date?
+    estimated_hours: {
+      type: DataTypes.INTEGER,   // or date?
     },
   },
   {
