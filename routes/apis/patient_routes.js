@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Room, Personnel, Service, TurnoverTeam} = require('../../models');
+const {Patient, Room, Personnel, Service,} = require('../../models');
 
 // The `/api/patients endpoint
 
@@ -11,20 +11,20 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Room,
-        attributes: ['id', 'type']
+        attributes: ['id', 'room_number', 'room_type', 'room_status',]
       },
       {
         model: Personnel,
-        attributes: ['id', 'name']
+        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
       },
       {
         model: Service,
-        attributes: ['id','description', 'estimated_time']
+        attributes: ['id','surgery_type', 'estimated_hours']
       },
-      {
-        model: TurnoverTeam,
-        attributes: ['', '']
-      },
+      // {
+      //   model: TurnoverTeam,
+      //   attributes: ['room_id', 'room_number', 'room_type', 'room_status']
+      // },
 
     ]
   })
@@ -46,20 +46,20 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Room,
-        attributes: ['id', 'type']
+        attributes: ['id', 'room_number', 'room_type', 'room_status']
       },
       {
         model: Personnel,
-        attributes: ['id', 'tag_name']
+        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
       },
       {
         model: Service,
-        attributes: ['id','description', 'estimated_time']
+        attributes: ['id','surgery_type', 'estimated_']
       },
-      {
-        model: TurnoverTeam,
-        attributes: ['id', 'blood', 'urine']
-      }
+      // {
+      //   model: TurnoverTeam,
+      //   attributes: ['room_id', 'room_number', 'room_type', 'room_status']
+      // }
     ]
   })
     .then(dbPatientData => {

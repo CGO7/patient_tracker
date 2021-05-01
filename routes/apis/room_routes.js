@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       },
       {
         model: Personnel,
-        attributes: ['id', 'number', 'type', 'status']
+        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
       }
     ]
   })
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Personnel,
-        attributes: ['id', 'number', 'type', 'status']
+        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
       }
     ]
   })
@@ -61,10 +61,10 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new Room
   Room.create({
-    Room_name: req.body.Room_name,
-    Room_phone: req.body.Room_phone,
-    Room_surgery_id: req.body.Room_surgery_id,
-    Room_job_title: req.body.Room_job_title
+    Room_id: req.body.Room_id,
+    Room_number: req.body.Room_number,
+    Room_type: req.body.Room_type,
+    Room_status: req.body.Room_status
   })
     .then(dbRoomData => res.json(dbRoomData))
     .catch(err => {
@@ -82,7 +82,7 @@ router.put('/:id', (req, res) => {
   })
     .then(dbRoomData => {
       if (!dbRoomData[0]) {
-        res.status(404).json({ message: 'No category with this id found'});
+        res.status(404).json({ message: 'No room with this id found'});
         return;
       }
       res.json(dbRoomData);
