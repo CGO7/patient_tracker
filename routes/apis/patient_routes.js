@@ -1,30 +1,31 @@
 const router = require('express').Router();
-const { Patient, Doctor, Service, Lab, Room } = require('../../models');
+const {Patient, Room, Personnel, Service,} = require('../../models');
 
 // The `/api/patients endpoint
 
 // get all patients
 router.get('/', (req, res) => {
   // find all patients
-  // be sure to include its associated room, doctor, service, and lab data
+  // be sure to include its associated room, Personnel, service, and lab data
   Patient.findAll({
     include: [
       {
         model: Room,
-        attributes: ['id', 'type']
+        attributes: ['id', 'room_number', 'room_type', 'room_status',]
       },
       {
-        model: Doctor,
-        attributes: ['id', 'name']
+        model: Personnel,
+        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
       },
       {
         model: Service,
-        attributes: ['id','description', 'estimated_time']   
+        attributes: ['id','surgery_type', 'estimated_hours']
       },
-      {
-        model: Lab,
-        attributes: ['id', 'blood', 'urine']
-      }
+      // {
+      //   model: TurnoverTeam,
+      //   attributes: ['room_id', 'room_number', 'room_type', 'room_status']
+      // },
+
     ]
   })
     .then(dbPatientData => res.json(dbPatientData))
@@ -45,26 +46,26 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Room,
-        attributes: ['id', 'type']
+        attributes: ['id', 'room_number', 'room_type', 'room_status']
       },
       {
-        model: Doctor,
-        attributes: ['id', 'tag_name']
+        model: Personnel,
+        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
       },
       {
         model: Service,
-        attributes: ['id','description', 'estimated_time']   
+        attributes: ['id','surgery_type', 'estimated_']
       },
-      {
-        model: Lab,
-        attributes: ['id', 'blood', 'urine']
-      }
+      // {
+      //   model: TurnoverTeam,
+      //   attributes: ['room_id', 'room_number', 'room_type', 'room_status']
+      // }
     ]
   })
     .then(dbPatientData => {
       if (!dbPatientData) {
-        res.status(404).json({ message: 'No patient with this id found'}); 
-        return; 
+        res.status(404).json({ message: 'No patient with this id found'});
+        return;
       }
       res.json(dbPatientData);
     })
@@ -83,28 +84,27 @@ router.post('/', (req, res) => {
     address: req.body.address,
     age: req.body.age,
     gender: req.body.gender,
-    doctorIds: req.body.doctor_id,// dropdown??
-    //roomIds: req.body.room_id,
-    //serviceId: req.body.service_id,
-    //labId: req.body.lab_id
+    PersonnelIds: req.body.Personnel_id,// dropdown??
+    roomIds: req.body.room_id,
+    serviceId: req.body.service_id,
     //referece data
     //form input map into body props
   })
     .then((patient) => {
-      // if there's patient doctors, we need to create pairings to bulk create in the PatientDoctor model
-      if (req.body.doctorIds.length) {
-        const patientDoctorIdArr = req.body.doctorIds.map((doctor_id) => {
+      // if there's patient Personnels, we need to create pairings to bulk create in the PatientPersonnel model
+      if (req.body.PersonnelIds.length) {
+        const patientPersonnelIdArr = req.body.PersonnelIds.map((Personnel_id) => {
           return {
             patient_id: patient.id,
-            doctor_id,
+            Personnel_id,
           };//switch case chain maybe for all Ids
         });
-        return PatientDoctor.bulkCreate(patientDoctorIdArr);
+        return PatientPersonnel.bulkCreate(patientPersonnelIdArr);
       }
       // if no patient tags, just respond
       res.status(200).json(patient);
     })
-    .then((patientDoctorIds) => res.status(200).json(patientDoctorIds))
+    .then((patientPersonnelIds) => res.status(200).json(patientPersonnelIds))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -119,34 +119,34 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-    .then((patient) => {
-      // find all associated doctors from PatientDoctor
-      return PatientDoctor.findAll({ where: { patient_id: req.params.id } });
+    .then(() => {
+      // find all associated Personnels from PatientPersonnel
+      return PatientPersonnel.findAll({ where: { patient_id: req.params.id } });
     })
-    .then((patientDoctors) => {
-      // get list of current doctor_ids
-      const patientDoctorIds = patientDoctors.map(({ doctor_id }) => doctor_id);
+    .then((patientPersonnels) => {
+      // get list of current Personnel_ids
+      const patientPersonnelIds = patientPersonnels.map(({ Personnel_id }) => Personnel_id);
       // create filtered list of new tag_ids
-      const newPatientDoctors = req.body.doctorIds
-        .filter((doctor_id) => !patientDoctorIds.includes(doctor_id))
-        .map((doctor_id) => {
+      const newPatientPersonnels = req.body.PersonnelIds
+        .filter((Personnel_id) => !patientPersonnelIds.includes(Personnel_id))
+        .map((Personnel_id) => {
           return {
             patient_id: req.params.id,
-            doctor_id,
+            Personnel_id,
           };
         });
       // figure out which ones to remove
-      const patientDoctorsToRemove = patientDoctors
-        .filter(({ doctor_id }) => !req.body.doctorIds.includes(doctor_id))
+      const patientPersonnelsToRemove = patientPersonnels
+        .filter(({ Personnel_id }) => !req.body.PersonnelIds.includes(Personnel_id))
         .map(({ id }) => id);
 
       // run both actions
       return Promise.all([
-        PatientDoctor.destroy({ where: { id: patientDoctorsToRemove } }),
-        PatientDoctor.bulkCreate(newPatientDoctors),
+        PatientPersonnel.destroy({ where: { id: patientPersonnelsToRemove } }),
+        PatientPersonnel.bulkCreate(newPatientPersonnels),
       ]);
     })
-    .then((updatedPatientDoctors) => res.json(updatedPatientDoctors))
+    .then((updatedPatientPersonnels) => res.json(updatedPatientPersonnels))
     .catch((err) => {
       // console.log(err);
       res.status(400).json(err);
@@ -166,7 +166,7 @@ router.delete('/:id', (req, res) => {
         return;
       }
       res.json(dbPatientData);
-})
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

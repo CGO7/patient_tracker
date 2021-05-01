@@ -20,7 +20,7 @@ TurnoverTeam.init(
       allowNull: false,
     },
     room_status: {
-      type: DataTypes.BOOLEAN,  // occupied or not?
+      type: DataTypes.BOOLEAN,// occupied or not?
       allowNull: false,
     },
     // might need patient_id as fk in here?

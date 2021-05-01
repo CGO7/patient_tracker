@@ -15,7 +15,7 @@ Service.init(
       type: DataTypes.STRING,
     },
     estimated_hours: {
-      type: DataTypes.INTEGER,   // or date?
+      type: DataTypes.INTEGER, // or date?
     },
   },
   {
