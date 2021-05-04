@@ -1,6 +1,6 @@
-const seedRoom = require('./category-seeds');
-const seedPersonnel = require('./product-seeds');
-const seedPatient = require('./tag-seeds');
+const seedRoom = require('./room_seeds');
+const seedPersonnel = require('./personnel_seeds');
+const seedPatient = require('./patient_seeds');
 
 const sequelize = require('../config/connection');
 
