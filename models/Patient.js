@@ -48,10 +48,12 @@ Patient.init(
       type: DataTypes.STRING,
     },
     surgery_id: {
+      type: DataTypes.INTEGER,
       references: 'service',
       key: 'id',
     },
     doctor_id: {
+      type: DataTypes.INTEGER,
       references: 'doctor',
       key: 'id',
     },
