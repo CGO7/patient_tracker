@@ -1,8 +1,8 @@
-const { Patients } = require('../models');
+const { Patient } = require('../models');
 
-const PatientsData = [
+const PatientData = [
   {
-    patients_id: '1',
+    patient_id: '1',
     first_name: 'Robert',
     last_name: 'Boucher, Jr.',
     phone_number: '210-123-4567',
@@ -19,7 +19,7 @@ const PatientsData = [
 
   },
   {
-    patients_id: '2',
+    patient_id: '2',
     first_name: 'Robbie',
     last_name: 'Hart',
     phone_number: '310-123-4567',
@@ -35,7 +35,7 @@ const PatientsData = [
     doctor_id: '5',
   },
   {
-    patients_id: '3',
+    patient_id: '3',
     first_name: 'Virginia',
     last_name: 'Venit',
     phone_number: '410-123-4567',
@@ -51,7 +51,7 @@ const PatientsData = [
     doctor_id: '5',
   },
   {
-    patients_id: '4',
+    patient_id: '4',
     first_name: 'Veronica',
     last_name: 'Vaughn',
     phone_number: '510-123-4567',
@@ -67,7 +67,7 @@ const PatientsData = [
     doctor_id: '3',
   },
   {
-    patients_id: '5',
+    patient_id: '5',
     first_name: 'Chubbs',
     last_name: 'Peterson',
     phone_number: '210-123-3423',
@@ -83,7 +83,7 @@ const PatientsData = [
     doctor_id: '2',
   },
   {
-    patients_id: '6',
+    patient_id: '6',
     first_name: 'Happy',
     last_name: 'Gilmore',
     phone_number: '210-634-3454',
@@ -100,6 +100,6 @@ const PatientsData = [
   }
 ];
 
-const seedPatientss = () => Patients.bulkCreate(PatientsData);
+const seedPatient = () => Patient.bulkCreate(PatientData);
 
-module.exports = seedPatientss;
+module.exports = seedPatient;
