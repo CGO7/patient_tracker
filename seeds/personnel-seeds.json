@@ -30,9 +30,9 @@
     "phone_number": "555-098-7654",
   },
   {
-    job_title: 'Surgical Tech',
-    name: 'Toaster Stevenson',
-    phone_number: '555-210-5123',
+    "job_title": "Surgical Tech",
+    "name": "Toaster Stevenson",
+    "phone_number": "555-210-5123",
   },
   {
     job_title: 'Nurse',
