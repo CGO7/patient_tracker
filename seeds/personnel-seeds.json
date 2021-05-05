@@ -1,8 +1,8 @@
 [
   {
     "job_title": "Surgeon",
-    name: 'Hilly Harty',
-    phone_number: '555-867-5309',
+    "name": "Hilly Harty",
+    "phone_number": "555-867-5309",
   },
   {
     job_title: 'Rad Tech',
