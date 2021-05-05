@@ -45,8 +45,8 @@
     "phone_number": "null",
   },
   {
-    job_title: 'Nurse',
-    name: 'Sora Nomura',
-    phone_number: '555-222-6666',
+    "job_title": "Nurse",
+    "name": "Sora Nomura",
+    "phone_number": "555-222-6666",
   },
 ]
