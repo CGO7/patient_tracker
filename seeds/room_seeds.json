@@ -20,10 +20,9 @@
     "room_status": "ready"
   },
   {
-    room_id: '1005',
-    number: 5,
-    type: 'single',
-    status: 'ready',
+    "room_number": "1005",
+    "room_type": "single",
+    "room_status": "ready"
   },
   {
     room_id: '1006',
