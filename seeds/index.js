@@ -14,7 +14,7 @@ const seedAll = async () => {
     console.log('\n----- DATABASE SYNCED -----\n');
 
     await seedRooms();
-    console.log('\n----- ROOM SEEDED -----\n');ç
+    console.log('\n----- ROOM SEEDED -----\n');
 
     // await seedServices();
     console.log('\n----- SERVICE SEEDED -----\n');
