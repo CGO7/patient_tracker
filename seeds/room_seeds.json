@@ -1,9 +1,8 @@
 [
   {
-    room_id: 1001,
-    number: 1,
-    type: 'single',
-    status: 'ready',
+    "room_number": "1001",
+    "type": "single",
+    "status": "ready"
   },
   {
     room_id: '1002',
