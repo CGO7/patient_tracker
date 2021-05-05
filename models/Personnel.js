@@ -30,7 +30,7 @@ Personnel.init(
     room_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'rooms',
+        model: 'room',
         key: 'id',
       },
     },
