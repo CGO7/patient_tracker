@@ -26,8 +26,13 @@ Personnel.init(
     },
     surgery_id: {
       type: DataTypes.INTEGER,
-      references: 'service',
-      key: 'id'
+    },
+    room_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'room',
+        key: 'id',
+      },
     },
   },
   {

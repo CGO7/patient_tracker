@@ -38,10 +38,10 @@ Patient.init(
       type: DataTypes.INTEGER,
     },
     gender: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: true,
     },
-    drug_Allergies: {
+    drug_allergies: {
       type: DataTypes.STRING,
     },
     insurance: {
@@ -49,13 +49,13 @@ Patient.init(
     },
     surgery_id: {
       type: DataTypes.INTEGER,
-      references: 'service',
-      key: 'id'
     },
-    doctor_id: {
+    room_id: {
       type: DataTypes.INTEGER,
-      references: 'doctor',
-      key: 'id'
+      references: {
+        model: 'room',
+        key: 'id',
+      },
     },
   },
   {

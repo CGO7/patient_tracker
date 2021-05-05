@@ -1,23 +1,27 @@
-const seedRoom = require('./room_seeds');
-const seedPersonnel = require('./personnel_seeds');
-const seedPatient = require('./patient_seeds');
-
 const sequelize = require('../config/connection');
+const { Room, Personnel, Patient } = require('../models');
 
-const seedAll = async () => {
+const room = require('./room_seeds.json');
+const personnel = require('./personnel_seeds.json');
+const patient = require('./patient_seeds.json');
+
+const seedDatabase = async () => {
   await sequelize.sync({ force: true });
-  console.log('\n----- DATABASE SYNCED -----\n');
 
-  await seedRoom();
-  console.log('\n----- ROOM SEEDED -----\n');
-
-  await seedPersonnel();
-  console.log('\n----- PERSONNEL SEEDED -----\n');
-
-  await seedPatient();
-  console.log('\n----- PATIENT SEEDED -----\n');
+  await Room.bulkCreate(room, {
+    individualHooks: true,
+    returning: true,
+  });
+  await Personnel.bulkCreate(personnel, {
+    individualHooks: true,
+    returning: true,
+  });
+  await Patient.bulkCreate(patient, {
+    individualHooks: true,
+    returning: true,
+  });
 
   process.exit(0);
 };
 
-seedAll();
+seedDatabase();
