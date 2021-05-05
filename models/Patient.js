@@ -50,10 +50,12 @@ Patient.init(
     surgery_id: {
       type: DataTypes.INTEGER,
     },
-    personnel_id: {
+    room_id: {
       type: DataTypes.INTEGER,
-      references: 'personnel',
-      key: 'id'
+      references: {
+        model: 'room',
+        key: 'id',
+      },
     },
   },
   {

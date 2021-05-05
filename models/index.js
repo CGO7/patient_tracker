@@ -5,8 +5,8 @@ const Patient = require('./Patient');
 const Personnel = require('./Personnel');
 const TurnoverTeam = require('./TurnoverTeam');
 
-Patient.belongsTo(Personnel, {
-  foreignKey: 'personnel_id'
+Patient.belongsTo(Room, {
+  foreignKey: 'room_id'
 });
 
 Personnel.belongsTo(Room, {
@@ -17,9 +17,8 @@ Room.hasMany(Personnel, {
   foreignKey: 'room_id',
 });
 
-Personnel.hasMany(Patient, {
-  foreignKey: 'personnel_id',
-//   onDelete: 'SET NULL', //not sure about this one
+Room.hasMany(Patient, {
+  foreignKey: 'room_id',
 });
 
 

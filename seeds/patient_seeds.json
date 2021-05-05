@@ -12,7 +12,7 @@
     "drug_allergies": "gatorade",
     "insurance": "Humana",
     "surgery_id": 2,
-    "personnel_id": 1
+    "room_id": 1
 
   },
   {
@@ -28,7 +28,7 @@
     "drug_allergies": "heartache",
     "insurance": "none",
     "surgery_id": 2,
-    "personnel_id": 5
+    "room_id": 2
   },
   {
     "first_name": "Virginia",
@@ -43,7 +43,7 @@
     "drug_allergies": "golfers",
     "insurance": "PGA",
     "surgery_id": 5,
-    "personnel_id": 1
+    "room_id": 1
   },
   {
     "first_name": "Veronica",
@@ -58,7 +58,7 @@
     "drug_allergies": "penguins",
     "insurance": "Humana",
     "surgery_id": 5,
-    "personnel_id": 5
+    "room_id": 2
   },
   {
     "first_name": "Chubbs",
@@ -73,7 +73,7 @@
     "drug_allergies": "alligators",
     "insurance": "PGA",
     "surgery_id": 4,
-    "personnel_id": 1
+    "room_id": 1
   },
   {
     "first_name": "Happy",
@@ -88,6 +88,6 @@
     "drug_allergies": "putting",
     "insurance": "PGA",
     "surgery_id": 1,
-    "personnel_id": 5
+    "room_id": 2
   }
 ]
