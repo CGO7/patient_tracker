@@ -1,8 +1,6 @@
-const { Personnel } = require('../models');
-
-const personnelData = [
+[
   {
-    job_title: 'Surgeon', // this might take an int rather than string
+    "job_title": "Surgeon",
     name: 'Hilly Harty',
     phone_number: '555-867-5309',
   },
@@ -51,8 +49,4 @@ const personnelData = [
     name: 'Sora Nomura',
     phone_number: '555-222-6666',
   },
-];
-
-const seedPersonnel = () => Personnel.bulkCreate(personnelData);
-
-module.exports = seedPersonnel;
+]
