@@ -49,8 +49,6 @@ Patient.init(
     },
     surgery_id: {
       type: DataTypes.INTEGER,
-      references: 'service',
-      key: 'id'
     },
     personnel_id: {
       type: DataTypes.INTEGER,
