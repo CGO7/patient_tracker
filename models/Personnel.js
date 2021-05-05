@@ -27,7 +27,7 @@ Personnel.init(
     surgery_id: {
       type: DataTypes.INTEGER,
     },
-    rooms_id: {
+    room_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'rooms',
