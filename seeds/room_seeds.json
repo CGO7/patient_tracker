@@ -35,8 +35,4 @@
     type: 'single',
     status: 'awaiting cleaning'
   }
-];
-
-const seedRooms = () => Room.bulkCreate(roomData);
-
-module.exports = seedRooms;
+]
