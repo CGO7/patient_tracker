@@ -40,9 +40,9 @@
     "phone_number": "555-547-2342",
   },
   {
-    job_title: 'Nurse',
-    name: 'Ada Wong',
-    phone_number: null,
+    "job_title": "Nurse",
+    "name": "Ada Wong",
+    "phone_number": "null",
   },
   {
     job_title: 'Nurse',
