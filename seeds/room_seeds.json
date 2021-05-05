@@ -5,20 +5,19 @@
     "room_status": "ready"
   },
   {
-    "room_number": "2002",
+    "room_number": "1002",
     "room_type": "double",
     "room_status": "occupied"
   },
   {
-    "room_number": "3003",
+    "room_number": "1003",
     "room_type": "single",
     "room_status": "awaiting cleaning"
   },
   {
-    room_id: '1004',
-    number: 4,
-    type: 'double',
-    status: 'ready',
+    "room_number": "1004",
+    "room_type": "double",
+    "room_status": "ready"
   },
   {
     room_id: '1005',
