@@ -16,7 +16,7 @@ const seedAll = async () => {
     individualHooks: true,
     returning: true,
   });
-  await Comments.bulkCreate(comments, {
+  await Room.bulkCreate(room, {
     individualHooks: true,
     returning: true,
   });
