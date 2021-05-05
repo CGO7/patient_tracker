@@ -35,9 +35,9 @@
     "phone_number": "555-210-5123",
   },
   {
-    job_title: 'Nurse',
-    name: 'Turd Ferguson',
-    phone_number: '555-547-2342',
+    "job_title": "Nurse",
+    "name": "Turd Ferguson",
+    "phone_number": "555-547-2342",
   },
   {
     job_title: 'Nurse',
