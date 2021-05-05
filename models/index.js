@@ -40,4 +40,4 @@ TurnoverTeam.belongsToMany(Room, {
 });
 
 
-module.exports = { User, Patient, Room, Service, TurnoverTeam };
+module.exports = { User, Patient, Personnel, Room, Service, TurnoverTeam };
