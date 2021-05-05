@@ -1,14 +1,13 @@
 [
   {
     "room_number": "1001",
-    "type": "single",
-    "status": "ready"
+    "room_type": "single",
+    "room_status": "ready"
   },
   {
-    room_id: '1002',
-    number: 2,
-    type: 'double',
-    status: 'occupied',
+    "room_number": "2002",
+    "room_type": "double",
+    "room_status": "occupied"
   },
   {
     room_id: '1003',
