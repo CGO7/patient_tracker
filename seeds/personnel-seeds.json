@@ -5,9 +5,9 @@
     "phone_number": "555-867-5309",
   },
   {
-    job_title: 'Rad Tech',
-    name: 'Ron Ravolta',
-    phone_number: '555-438-2368',
+    "job_title": "Rad Tech",
+    "name": "Ron Ravolta",
+    "phone_number": "555-438-2368",
   },
   {
     job_title: 'Surgical Tech',
