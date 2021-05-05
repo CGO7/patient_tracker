@@ -15,9 +15,9 @@
     "phone_number": "555-555-5555",
   },
   {
-    job_title: 'Nurse',
-    name: 'Kratos Doe',
-    phone_number: '555-666-7777',
+    "job_title": "Nurse",
+    "name": "Kratos Doe",
+    "phone_number": "555-666-7777",
   },
   {
     job_title: 'Surgeon',
