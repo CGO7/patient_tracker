@@ -1,6 +1,6 @@
-const seedRoom = require('./room_seeds');
-const seedPersonnel = require('./personnel_seeds');
-const seedPatient = require('./patient_seeds');
+const room = require('./room_seeds');
+const personnel = require('./personnel_seeds');
+const patient = require('./patient_seeds');
 
 const sequelize = require('../config/connection');
 const { Patient, Personnel, Room } = require('../models');
@@ -8,7 +8,7 @@ const { Patient, Personnel, Room } = require('../models');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  await User.bulkCreate(userData, {
+  await Patient.bulkCreate(patient, {
     individualHooks: true,
     returning: true,
   });
