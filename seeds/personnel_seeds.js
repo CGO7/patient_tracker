@@ -2,7 +2,7 @@ const { Personnel } = require('../models');
 
 const personnelData = [
   {
-    job_title: 'Surgeon', // this might take an int rather than string
+    job_title: 'Surgeon',
     name: 'Hilly Harty',
     phone_number: '555-867-5309',
   },
@@ -17,7 +17,7 @@ const personnelData = [
     phone_number: '555-555-5555',
   },
   {
-    job_title: 'Nurse',
+    job_title: 'Turnover Team',
     name: 'Kratos Doe',
     phone_number: '555-666-7777',
   },
@@ -44,7 +44,7 @@ const personnelData = [
   {
     job_title: 'Nurse',
     name: 'Ada Wong',
-    phone_number: null,
+    phone_number: '555-444-3333',
   },
   {
     job_title: 'Nurse',

@@ -14,7 +14,7 @@ User.init(
     username: {
       type: DataTypes.STRING,
       validate: {
-          len:[6],
+        len:[6],
       }
     },
     password: {

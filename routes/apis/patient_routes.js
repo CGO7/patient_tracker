@@ -9,23 +9,12 @@ router.get('/', (req, res) => {
   // be sure to include its associated room, Personnel, service, and lab data
   Patient.findAll({
     include: [
-      {
-        model: Room,
-        attributes: ['id', 'room_number', 'room_type', 'room_status',]
-      },
+      { model: Room },
       {
         model: Personnel,
-        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
+        attributes: ['id', 'job_title', 'name', 'surgery_id']
       },
-      {
-        model: Service,
-        attributes: ['id','surgery_type', 'estimated_hours']
-      },
-      // {
-      //   model: TurnoverTeam,
-      //   attributes: ['room_id', 'room_number', 'room_type', 'room_status']
-      // },
-
+      { model: Service },
     ]
   })
     .then(dbPatientData => res.json(dbPatientData))
@@ -35,7 +24,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// get one patientt
+// get one patient
 router.get('/:id', (req, res) => {
   // find a single patient by its `id`
   // be sure to include its associated Category and Tag data
@@ -46,20 +35,13 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Room,
-        attributes: ['id', 'room_number', 'room_type', 'room_status']
       },
       {
         model: Personnel,
-        attributes: ['id', 'job_title', 'name', 'phone_number', 'surgery_id']
+        through: PatientStaff,
+        as: 'medical_staff'
       },
-      {
-        model: Service,
-        attributes: ['id','surgery_type', 'estimated_']
-      },
-      // {
-      //   model: TurnoverTeam,
-      //   attributes: ['room_id', 'room_number', 'room_type', 'room_status']
-      // }
+      { model: Service },
     ]
   })
     .then(dbPatientData => {
@@ -78,15 +60,19 @@ router.get('/:id', (req, res) => {
 // create new patientt
 router.post('/', (req, res) => {
   Patient.create({
-    patient_first_name: req.body.patient_first_name,
-    patient_last_name: req.body.patient_last_name,
-    phone: req.body.phone,
+    // req.body
+    first_name: req.body.patient_first_name,
+    last_name: req.body.patient_last_name,
+    phone_number: req.body.phone,
     address: req.body.address,
+    city: req.body.city,
+    state: req.body.state,
+    zip_code: req.body.zip_code,
     age: req.body.age,
     gender: req.body.gender,
-    PersonnelIds: req.body.Personnel_id,// dropdown??
-    roomIds: req.body.room_id,
-    serviceId: req.body.service_id,
+    drug_allergies: req.body.drug_allergies,
+    insurance: req.body.insurance,
+    service_id: req.body.service_id, // multiple values?
     //referece data
     //form input map into body props
   })

@@ -14,7 +14,7 @@ Personnel.init(
     job_title: {
       type: DataTypes.ENUM,
       allowNull: false,
-      values: ['Surgeon', 'Rad Tech', 'Surgical Tech', 'Nurse'],
+      values: ['Surgeon', 'Rad Tech', 'Surgical Tech', 'Nurse', 'Turnover Team'],
     },
     name: {
       type: DataTypes.STRING,
@@ -26,8 +26,10 @@ Personnel.init(
     },
     surgery_id: {
       type: DataTypes.INTEGER,
-      references: 'service',
-      key: 'id'
+      references: {
+        model: 'service',
+        key: 'id',
+      },
     },
   },
   {

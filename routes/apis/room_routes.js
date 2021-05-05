@@ -61,10 +61,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new Room
   Room.create({
-    Room_id: req.body.Room_id,
-    Room_number: req.body.Room_number,
-    Room_type: req.body.Room_type,
-    Room_status: req.body.Room_status
+    room_number: req.body.room_number,
+    type: req.body.type,
+    status: req.body.status
   })
     .then(dbRoomData => res.json(dbRoomData))
     .catch(err => {

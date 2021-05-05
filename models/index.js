@@ -3,41 +3,51 @@ const Room = require('./Room');
 const Service = require('./Service');
 const Patient = require('./Patient');
 const Personnel = require('./Personnel');
-const TurnoverTeam = require('./TurnoverTeam');
+const PatientStaff = require('./PatientStaff');
+const StaffLocation = require('./StaffLocation');
 
-
-Personnel.hasMany(Patient, {
-  foreignKey: 'personnel_id',
-//   onDelete: 'SET NULL', //not sure about this one
+Personnel.belongsToMany(Patient, {
+  through: {
+    model: PatientStaff,
+    unique: false,
+  },
+  as: 'medical_staff'
 });
 
-Patient.belongsTo(Personnel, {
-  foreignKey: 'personnel_id'
+Patient.belongsToMany(Personnel, {
+  through: {
+    model: PatientStaff,
+    unique: false,
+  },
+  as: 'medical_staff'
 });
 
 Room.hasMany(Patient, {
-  foreignKey: 'patient_id',
+  foreignKey: 'room_id',
 });
 
-Patient.belongsTo(Room, {
-  foreignKey: 'patient_id',
-});
+Patient.belongsTo(Room);
 
-Room.hasMany(Personnel, {
-  foreignKey: 'patient_id',
+Room.belongsToMany(Personnel, {
+  through: {
+    model: StaffLocation,
+    unique: false,
+  },
+  as: 'room_staff'
 });
 
 Personnel.belongsToMany(Room, {
+  through: {
+    model: StaffLocation,
+    unique: false,
+  },
+  as: 'room_staff'
+});
+
+Patient.hasMany(Service, {
   foreignKey: 'patient_id',
 });
 
-Room.hasMany(TurnoverTeam, {
-  foreignKey: 'patient_id',
-});
+Service.belongsTo(Patient);
 
-TurnoverTeam.belongsToMany(Room, {
-  foreignKey: 'patient_id',
-});
-
-
-module.exports = { User, Patient, Room, Service, TurnoverTeam };
+module.exports = { User, Patient, Room, Service, Personnel, PatientStaff, StaffLocation };

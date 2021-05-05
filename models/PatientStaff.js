@@ -1,37 +1,42 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Service extends Model {}
+// create our PatientStaff model
+class PatientStaff extends Model {}
 
-Service.init(
+// create fields/columns for PatientStaff model
+PatientStaff.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
-    },
-    surgery_type: {
-      type: DataTypes.STRING,
-    },
-    estimated_hours: {
-      type: DataTypes.INTEGER,
+      autoIncrement: true
     },
     patient_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'patient',
         key: 'id',
+        // unique: false
       }
     },
+    personnel_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'personnel',
+        key: 'id',
+        // unique: false
+      }
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'service',
+    modelName: 'patientstaff'
   }
 );
 
-module.exports = Service;
+module.exports = PatientStaff;

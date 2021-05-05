@@ -5,7 +5,7 @@ class Room extends Model {}
 
 Room.init(
   {
-    room_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -14,16 +14,18 @@ Room.init(
     room_number: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [3,5],
+      },
     },
-    room_type: {
+    type: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    room_status: {
-      type: DataTypes.BOOLEAN,// occupied or not?
+    status: {
+      type: DataTypes.STRING,// occupied or not?
       allowNull: false,
     },
-    // might need patient_id as fc in here?
   },
   {
     sequelize,
