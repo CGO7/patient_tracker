@@ -36,6 +36,13 @@ Personnel.init(
         key: 'id',
       },
     },
+    patient_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'patients',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,

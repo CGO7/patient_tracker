@@ -27,7 +27,7 @@ Room.hasMany(Personnel, {
   foreignKey: 'patient_id',
 });
 
-Personnel.belongsToMany(Room, {
+Personnel.belongsTo(Room, {
   foreignKey: 'patient_id',
 });
 
@@ -35,9 +35,9 @@ Room.hasMany(TurnoverTeam, {
   foreignKey: 'patient_id',
 });
 
-TurnoverTeam.belongsToMany(Room, {
-  foreignKey: 'patient_id',
-});
+// TurnoverTeam.belongsTo(Room, {
+//   foreignKey: 'patient_id',
+// });
 
 
 module.exports = { User, Patient, Personnel, Room, Service, TurnoverTeam };
