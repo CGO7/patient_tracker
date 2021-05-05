@@ -8,7 +8,7 @@ const { Patient, Personnel, Room } = require('../models');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  await Patient.bulkCreate(patient, {
+  await Room.bulkCreate(room, {
     individualHooks: true,
     returning: true,
   });
@@ -16,11 +16,10 @@ const seedAll = async () => {
     individualHooks: true,
     returning: true,
   });
-  await Room.bulkCreate(room, {
+  await Patient.bulkCreate(patient, {
     individualHooks: true,
     returning: true,
   });
-
   // console.log('\n----- DATABASE SYNCED -----\n');
 
   process.exit(0);
