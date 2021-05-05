@@ -25,9 +25,8 @@
     "room_status": "ready"
   },
   {
-    room_id: '1006',
-    number: 6,
-    type: 'single',
-    status: 'awaiting cleaning'
+    "room_number": "1006",
+    "room_type": "single",
+    "room_status": "awaiting cleaning
   }
 ]
