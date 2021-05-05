@@ -41,7 +41,7 @@ Patient.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    drug_Allergies: {
+    drug_allergies: {
       type: DataTypes.STRING,
     },
     insurance: {
