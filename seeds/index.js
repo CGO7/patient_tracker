@@ -3,6 +3,7 @@ const seedPersonnel = require('./personnel_seeds');
 const seedPatient = require('./patient_seeds');
 
 const sequelize = require('../config/connection');
+const { Patient, Personnel, Room } = require('../models');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
