@@ -38,7 +38,7 @@ Patient.init(
       type: DataTypes.INTEGER,
     },
     gender: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     drug_Allergies: {
