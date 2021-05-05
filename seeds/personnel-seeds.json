@@ -10,9 +10,9 @@
     "phone_number": "555-438-2368",
   },
   {
-    job_title: 'Surgical Tech',
-    name: 'Ashe Missem',
-    phone_number: '555-555-5555',
+    "job_title": "Surgical Tech",
+    "name": "Ashe Missem",
+    "phone_number": "555-555-5555",
   },
   {
     job_title: 'Nurse',
