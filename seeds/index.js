@@ -21,7 +21,7 @@ const seedAll = async () => {
     returning: true,
   });
 
-  console.log('\n----- DATABASE SYNCED -----\n');
+  // console.log('\n----- DATABASE SYNCED -----\n');
 
   process.exit(0);
 };
