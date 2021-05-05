@@ -2,51 +2,61 @@
   {
     "job_title": "Surgeon",
     "name": "Hilly Harty",
-    "phone_number": "555-867-5309"
+    "phone_number": "555-867-5309",
+    "room_id": "1001"
   },
   {
     "job_title": "Rad Tech",
     "name": "Ron Ravolta",
-    "phone_number": "555-438-2368"
+    "phone_number": "555-438-2368",
+    "room_id": "1001"
   },
   {
     "job_title": "Surgical Tech",
     "name": "Ashe Missem",
-    "phone_number": "555-555-5555"
+    "phone_number": "555-555-5555",
+    "room_id": "1001"
   },
   {
     "job_title": "Nurse",
     "name": "Kratos Doe",
-    "phone_number": "555-666-7777"
+    "phone_number": "555-666-7777",
+    "room_id": "1001"
   },
   {
     "job_title": "Surgeon",
     "name": "Leon Kennedy",
-    "phone_number": "555-123-4567"
+    "phone_number": "555-123-4567",
+    "room_id": "1002"
   },
   {
     "job_title": "Rad Tech",
     "name": "Bort Simpson",
-    "phone_number": "555-098-7654"
+    "phone_number": "555-098-7654",
+    "room_id": "1002"
   },
   {
     "job_title": "Surgical Tech",
     "name": "Toaster Stevenson",
-    "phone_number": "555-210-5123"
+    "phone_number": "555-210-5123",
+    "room_id": "1002"
   },
   {
     "job_title": "Nurse",
     "name": "Turd Ferguson",
-    "phone_number": "555-547-2342"
+    "phone_number": "555-547-2342",
+    "room_id": "1002"
   },
   {
     "job_title": "Nurse",
     "name": "Ada Wong",
-    "phone_number": "null"
+    "phone_number": "null",
+    "room_id": "1004"
   },
   {
     "job_title": "Nurse",
     "name": "Sora Nomura",
-    "phone_number": "555-222-6666"
+    "phone_number": "555-222-6666",
+    "room_id": "1002"
   }
 ]
