@@ -10,10 +10,9 @@
     "room_status": "occupied"
   },
   {
-    room_id: '1003',
-    number: 3,
-    type: 'single',
-    status: 'awaiting cleaning',
+    "room_number": "3003",
+    "room_type": "single",
+    "room_status": "awaiting cleaning"
   },
   {
     room_id: '1004',
