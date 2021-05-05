@@ -25,9 +25,9 @@
     "phone_number": "555-123-4567",
   },
   {
-    job_title: 'Rad Tech',
-    name: 'Bort Simpson',
-    phone_number: '555-098-7654',
+    "job_title": "Rad Tech",
+    "name": "Bort Simpson",
+    "phone_number": "555-098-7654",
   },
   {
     job_title: 'Surgical Tech',
