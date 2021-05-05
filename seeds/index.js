@@ -12,7 +12,7 @@ const seedAll = async () => {
     individualHooks: true,
     returning: true,
   });
-  await Posts.bulkCreate(posts, {
+  await Personnel.bulkCreate(personnel, {
     individualHooks: true,
     returning: true,
   });
