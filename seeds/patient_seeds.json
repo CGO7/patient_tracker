@@ -29,7 +29,7 @@
     "drug_allergies": "heartache",
     "insurance": "none",
     "surgery_id": "2",
-    "personnel_id": "2",
+    "personnel_id": "5",
     "room_id": "1001"
   },
   {
@@ -61,7 +61,7 @@
     "drug_allergies": "penguins",
     "insurance": "Humana",
     "surgery_id": "5",
-    "personnel_id": "1",
+    "personnel_id": "5",
     "room_id": "1002"
   },
   {
@@ -77,7 +77,7 @@
     "drug_allergies": "alligators",
     "insurance": "PGA",
     "surgery_id": "4",
-    "personnel_id": "2",
+    "personnel_id": "1",
     "room_id": "1002"
   },
   {
@@ -93,7 +93,7 @@
     "drug_allergies": "putting",
     "insurance": "PGA",
     "surgery_id": "1",
-    "personnel_id": "3",
+    "personnel_id": "5",
     "room_id": "1003"
   }
 ]

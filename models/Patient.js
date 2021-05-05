@@ -57,13 +57,6 @@ Patient.init(
       references: 'personnel',
       key: 'id'
     },
-    rooms_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'rooms',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,
