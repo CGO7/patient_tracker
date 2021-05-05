@@ -20,9 +20,9 @@
     "phone_number": "555-666-7777",
   },
   {
-    job_title: 'Surgeon',
-    name: 'Leon Kennedy',
-    phone_number: '555-123-4567',
+    "job_title": "Surgeon",
+    "name": "Leon Kennedy",
+    "phone_number": "555-123-4567",
   },
   {
     job_title: 'Rad Tech',
