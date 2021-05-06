@@ -34,12 +34,12 @@ Patient.init(
     zip_code: {
       type: DataTypes.STRING(10),
     },
-    age: {
-      type: DataTypes.INTEGER,
+    dateOfBirth: {
+      type: DataTypes.DATE,
     },
     // TRUE (1) - Male; False (0) - Female; NULL - Other;
     gender: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: true,
     },
     drug_allergies: {
