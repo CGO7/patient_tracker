@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
     city: req.body.city,
     state: req.body.state,
     zip_code: req.body.zip_code,
-    age: req.body.age,
+    dateOfBirth: req.body.dateOfBirth,
     gender: req.body.gender,
     drug_allergies: req.body.drug_allergies,
     insurance: req.body.insurance,
