@@ -39,7 +39,7 @@ Patient.init(
     },
     // TRUE (1) - Male; False (0) - Female; NULL - Other;
     gender: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     drug_allergies: {

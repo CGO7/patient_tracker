@@ -38,8 +38,6 @@ const seedAll = async () => {
     console.log('ERROR: ' + err);
   }
 
-
-
   process.exit(0);
 };
 
