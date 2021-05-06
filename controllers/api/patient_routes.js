@@ -4,25 +4,25 @@ const {Patient, Room, Personnel, Service,} = require('../../models');
 // The `/api/patients endpoint
 
 // get all patients
-router.get('/', (req, res) => {
-  // find all patients
-  // be sure to include its associated room, Personnel, service, and lab data
-  Patient.findAll({
-    include: [
-      { model: Room },
-      {
-        model: Personnel,
-        attributes: ['id', 'job_title', 'name', 'surgery_id']
-      },
-      { model: Service },
-    ]
-  })
-    .then(dbPatientData => res.json(dbPatientData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.get('/', (req, res) => {
+//   // find all patients
+//   // be sure to include its associated room, Personnel, service, and lab data
+//   Patient.findAll({
+//     include: [
+//       { model: Room },
+//       {
+//         model: Personnel,
+//         attributes: ['id', 'job_title', 'name', 'surgery_id']
+//       },
+//       { model: Service },
+//     ]
+//   })
+//     .then(dbPatientData => res.json(dbPatientData))
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // get one patient
 router.get('/:id', (req, res) => {

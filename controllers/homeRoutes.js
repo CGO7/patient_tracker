@@ -1,37 +1,77 @@
 const router = require('express').Router();
-const { Patient, User } = require('../models');
+const { Patient, User, PatientStaff, Personnel, Room } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const patientData = await Patient.findAll();
+    console.log(req.body);
+    // const patientData = await Patient.findAll();
 
-    // Serialize data so the template can read it
-    const patients = patientData.map((patient) => patient.get({ plain: true }));
+    // // Serialize data so the template can read it
+    // const patients = patientData.map((patient) => patient.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', {
-      patients,
-      // logged_in: req.session.logged_in
-    });
+    // // Pass serialized data and session flag into template
+    if (req.session.logged_in) {
+      res.render('search', {
+        logged_in: req.session.logged_in
+      });
+    } else {
+      res.render('homepage');
+    }
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/patients', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+    const patientData = await Patient.findAll({
+      attributes: { include: ['first_name', 'last_name', 'dateOfBirth'] },
     });
 
-    const user = userData.get({ plain: true });
+    const patients = patientData.map((patient) => patient.get({ plain: true }));
 
-    res.render('profile', {
-      user,
+    res.render('patient-list', {
+      patients,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/patient/:id', withAuth, async (req, res) => {
+  try {
+    const patientData = await Patient.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Personnel,
+      //     through: PatientStaff,
+      //   },
+      //   { model: Room }
+      // ],
+    });
+
+    const patient = patientData.get({ plain: true });
+
+    res.render('patient', {
+      patient,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/personnel', withAuth, async (req, res) => {
+  try {
+    const personnelData = await Personnel.findAll();
+
+    const personnel = personnelData.map((person) => person.get({ plain: true }));
+
+    res.render('personnel-list', {
+      personnel,
       logged_in: true
     });
   } catch (err) {
@@ -42,7 +82,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/search');
     return;
   }
 
