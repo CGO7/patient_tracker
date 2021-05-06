@@ -5,7 +5,7 @@ const seedPatients = require('./patient_seeds');
 const seedStaffLocation = require('./staffLocation_seeds');
 const seedPatientStaff = require('./patientStaff_seeds');
 // const seedServices = require('./service_seeds');
-// const seedUsers = require('./user_seeds');
+const seedUsers = require('./user_seeds');
 
 
 const seedAll = async () => {
@@ -31,8 +31,8 @@ const seedAll = async () => {
     await seedPatientStaff();
     console.log('\n----- PATIENTSTAFF SEEDED -----\n');
 
-    // await seedUsers();
-    // console.log('\n----- USER SEEDED -----\n');
+    await seedUsers();
+    console.log('\n----- USER SEEDED -----\n');
 
   } catch (err) {
     console.log('ERROR: ' + err);
