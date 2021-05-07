@@ -4,19 +4,21 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     // const patientData = await Patient.findAll();
 
-    // // Serialize data so the template can read it
+    // // // Serialize data so the template can read it
     // const patients = patientData.map((patient) => patient.get({ plain: true }));
 
-    // // Pass serialized data and session flag into template
+    // // // Pass serialized data and session flag into template
     if (req.session.logged_in) {
       res.render('search', {
         logged_in: req.session.logged_in
       });
     } else {
-      res.render('homepage');
+      res.render('homepage', 
+      // patients
+      );
     }
   } catch (err) {
     res.status(500).json(err);
