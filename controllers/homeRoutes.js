@@ -91,4 +91,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/search', (req, res) => {
+    res.render('search');
+});
+
 module.exports = router;
