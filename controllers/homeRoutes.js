@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Patient, User, PatientStaff, Personnel, Room } = require('../models');
+const { Patient, User, PatientStaff, StaffLocation, Personnel, Room } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -109,8 +109,17 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/api/users/logout');
+    return;
+  }
+
+  res.render('homepage');
+});
+
 router.get('/search', (req, res) => {
-    res.render('search');
+  res.render('search');
 });
 
 // Added rooms route(s)
@@ -131,17 +140,23 @@ router.get('/rooms', withAuth, async (req, res) => {
   }
 });
 
-router.get('/rooms/:id', withAuth, async (req, res) => {
+router.get('/room/:id', withAuth, async (req, res) => {
   try {
-    const roomData = await Rooms.findByPk(req.params.id, {
-      // include:
+    const roomData = await Room.findByPk(req.params.id, {
+      include: [
+        { model: Patient},
+        { model: Personnel,
+          through: StaffLocation,
+          as: 'room_staff'
+        },
+      ]
     });
 
-    const rooms = roomData.get({ plain: true });
+    const room = roomData.get({ plain: true });
 
-    res.render('rooms', {
-      patient,
-      logged_in: true
+    res.render('room', {
+      room,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
