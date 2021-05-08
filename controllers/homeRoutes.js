@@ -64,6 +64,7 @@ router.get('/patient/:id', withAuth, async (req, res) => {
   }
 });
 
+// get all personnel
 router.get('/personnel', withAuth, async (req, res) => {
   try {
     const personnelData = await Personnel.findAll();
@@ -72,6 +73,23 @@ router.get('/personnel', withAuth, async (req, res) => {
 
     res.render('personnel-list', {
       personnel,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get a personnel member by ID
+router.get('/personnel/:id', withAuth, async (req, res) => {
+  try {
+    const personnelData = await Personnel.findByPk(req.params.id, {
+    });
+
+    const person = personnelData.get({ plain: true });
+
+    res.render('personnel', {
+      person,
       logged_in: true
     });
   } catch (err) {
