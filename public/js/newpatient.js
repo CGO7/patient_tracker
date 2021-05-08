@@ -1,7 +1,7 @@
 const patientFormHandler = async (event) => {
     event.preventDefault();
   
-    // Collect values from the login form
+    // Collect values from the new patient form
     const first_name = document.querySelector('#first-name').value.trim();
     const last_name = document.querySelector('#last-name').value.trim();
     const phone_number = document.querySelector('#phone-number').value.trim();
@@ -14,11 +14,11 @@ const patientFormHandler = async (event) => {
     const state = document.querySelector('#state').value.trim();
     const zip = document.querySelector('#zip').value.trim();
   
-    if (username && password) {
+    if (first_name && last_name && phone_number && date_of_birth && gender && drug_allergies && insurance && address && city && state && zip) {
       // Send a POST request to the API endpoint
       const response = await fetch('/api/users/login', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ first_name, last_name, phone_number, date_of_birth, gender, drug_allergies, insurance, address, city, state, zip }),
         headers: { 'Content-Type': 'application/json' },
       });
   
