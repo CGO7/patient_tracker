@@ -105,7 +105,7 @@ router.get('/rooms', withAuth, async (req, res) => {
     const rooms = roomData.map((rooms) => rooms.get({ plain: true }));
 
     res.render('rooms-list', {
-      patients,
+      rooms,
       logged_in: true
     });
   } catch (err) {
