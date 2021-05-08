@@ -1,0 +1,9 @@
+<div class="room{{id}}">
+    <a href="/room/{{id}}">
+    {{#if (roomReady status)}}
+        <div class="room-name text-success">{{room_number}}</div>
+    {{else}}
+        <div class="room-name text-warning">{{room_number}}</div>
+    {{/if}}
+    </a>
+</div>
