@@ -2,17 +2,17 @@ const patientFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect values from the login form
-    const username = document.querySelector('#first-name').value.trim();
-    const password = document.querySelector('#last-name').value.trim();
-    const password = document.querySelector('#phone-number').value.trim();
-    const password = document.querySelector('#dob').value.trim();
-    const password = document.querySelector('#gender').value.trim();
-    const password = document.querySelector('#drug-allergies').value.trim();
-    const password = document.querySelector('#insurance').value.trim();
-    const password = document.querySelector('#address').value.trim();
-    const password = document.querySelector('#city').value.trim();
-    const password = document.querySelector('#state').value.trim();
-    const password = document.querySelector('#zip').value.trim();
+    const first_name = document.querySelector('#first-name').value.trim();
+    const last_name = document.querySelector('#last-name').value.trim();
+    const phone_number = document.querySelector('#phone-number').value.trim();
+    const date_of_birth = document.querySelector('#dob').value.trim();
+    const gender = document.querySelector('#gender').value.trim();
+    const drug_allergies = document.querySelector('#drug-allergies').value.trim();
+    const insurance = document.querySelector('#insurance').value.trim();
+    const address = document.querySelector('#address').value.trim();
+    const city = document.querySelector('#city').value.trim();
+    const state = document.querySelector('#state').value.trim();
+    const zip = document.querySelector('#zip').value.trim();
   
     if (username && password) {
       // Send a POST request to the API endpoint
