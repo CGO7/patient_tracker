@@ -16,7 +16,7 @@ const patientFormHandler = async (event) => {
   
     if (first_name && last_name && phone_number && date_of_birth && gender && drug_allergies && insurance && address && city && state && zip) {
       // Send a POST request to the API endpoint
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/patient/add', {
         method: 'POST',
         body: JSON.stringify({ first_name, last_name, phone_number, date_of_birth, gender, drug_allergies, insurance, address, city, state, zip }),
         headers: { 'Content-Type': 'application/json' },
