@@ -1,18 +1,18 @@
 <div class="row container center">
-    <div class="col s6">
-      <div class="card indigo">
-        <div class="card-content white-text">
-          <span class="card-title">Staff</span>
-          <div class="container center white-text">
-            {{#each personnel as |p|}}
-                {{> personnel-details}}
-            {{/each}}
-          </div>
+  <div class="col s6">
+    <div class="card indigo">
+      <div class="card-content white-text">
+        <span class="card-title">Staff</span>
+        <div class="container center white-text">
+          {{#each personnel as |p|}}
+              {{> personnel-details}}
+          {{/each}}
         </div>
-        <div class="card-action">
-          <a href="/patients">Patients</a>
-          <a href="/room">Rooms</a>
-        </div>
+      </div>
+      <div class="card-action">
+        <a href="/patients">Patients</a>
+        <a href="/room">Rooms</a>
       </div>
     </div>
   </div>
+</div>

@@ -1,9 +1,18 @@
-<container class="container-sm">
-  <div class="row">
-      <div class="col">
-        {{#each patients as |patient|}}
+<div class="row container center">
+  <div class="col s6">
+    <div class="card indigo">
+      <div class="card-content white-text">
+        <span class="card-title">Patients</span>
+        <div class="container center white-text">
+          {{#each patients as |patient|}}
             {{> patient-details}}
-        {{/each}}
+          {{/each}}
+        </div>
       </div>
+      <div class="card-action">
+        <a href="/personnel">Personnel</a>
+        <a href="/room">Rooms</a>
+      </div>
+    </div>
   </div>
-</container>
+</div>
