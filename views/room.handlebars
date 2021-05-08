@@ -1,0 +1,29 @@
+<div class="container">
+    <section class="card indigo white-text">
+        <div class="room_number">
+            Room Number: {{room.room_number}}
+        </div>
+        <div class="type">
+            Room Type: {{room.type}}
+        </div>
+        <div class="status">
+            Room Status: {{room.status}}
+        </div>
+    </section>
+    <section class="card">
+        <div class="patients-in-room">
+            <p>Patients Assigned to room:</p>
+            {{#each room.patients as |patient|}}
+            {{> patient-details}}
+            {{/each}}
+        </div>
+    </section>
+    <section class="card">
+        <div class="room-staff">
+            <p>Staff Assigned to room:</p>
+            {{#each room.room_staff as |staff|}}
+                {{> personnel-details}}
+            {{/each}}
+        </div>
+    </section>
+</div>
