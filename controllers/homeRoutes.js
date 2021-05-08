@@ -4,19 +4,21 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     // const patientData = await Patient.findAll();
 
-    // // Serialize data so the template can read it
+    // // // Serialize data so the template can read it
     // const patients = patientData.map((patient) => patient.get({ plain: true }));
 
-    // // Pass serialized data and session flag into template
+    // // // Pass serialized data and session flag into template
     if (req.session.logged_in) {
       res.render('search', {
         logged_in: req.session.logged_in
       });
     } else {
-      res.render('homepage');
+      res.render('homepage', 
+      // patients
+      );
     }
   } catch (err) {
     res.status(500).json(err);
@@ -87,6 +89,45 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/search', (req, res) => {
+    res.render('search');
+});
+
+// Added rooms route(s)
+router.get('/rooms', withAuth, async (req, res) => {
+  try {
+    const roomData = await Room.findAll({
+      attributes: { include: ['room_number', 'type', 'status'] },
+    });
+
+    const rooms = roomData.map((rooms) => rooms.get({ plain: true }));
+
+    res.render('rooms-list', {
+      rooms,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/rooms/:id', withAuth, async (req, res) => {
+  try {
+    const roomData = await Rooms.findByPk(req.params.id, {
+      // include:
+    });
+
+    const rooms = roomData.get({ plain: true });
+
+    res.render('rooms', {
+      patient,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
