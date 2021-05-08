@@ -1,9 +1,18 @@
-const loginFormHandler = async (event) => {
+const patientFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect values from the login form
-    const username = document.querySelector('#username-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const username = document.querySelector('#first-name').value.trim();
+    const password = document.querySelector('#last-name').value.trim();
+    const password = document.querySelector('#phone-number').value.trim();
+    const password = document.querySelector('#dob').value.trim();
+    const password = document.querySelector('#gender').value.trim();
+    const password = document.querySelector('#drug-allergies').value.trim();
+    const password = document.querySelector('#insurance').value.trim();
+    const password = document.querySelector('#address').value.trim();
+    const password = document.querySelector('#city').value.trim();
+    const password = document.querySelector('#state').value.trim();
+    const password = document.querySelector('#zip').value.trim();
   
     if (username && password) {
       // Send a POST request to the API endpoint
@@ -25,5 +34,5 @@ const loginFormHandler = async (event) => {
   const loginFormEl = document.querySelector('.login-form');
   
   if (loginFormEl) {
-    loginFormEl.addEventListener('submit', loginFormHandler);
+    loginFormEl.addEventListener('submit', patientFormHandler);
   }
