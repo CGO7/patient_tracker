@@ -31,7 +31,7 @@ const patientFormHandler = async (event) => {
     }
   };
   
-  const loginFormEl = document.querySelector('.login-form');
+  const patientFormEl = document.querySelector('.patient-form');
   
   if (loginFormEl) {
     loginFormEl.addEventListener('submit', patientFormHandler);
