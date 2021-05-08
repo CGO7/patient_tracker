@@ -2,16 +2,16 @@
   <div class="col s6">
     <div class="card indigo">
       <div class="card-content white-text">
-        <span class="card-title">Patients</span>
+        <span class="card-title">Rooms</span>
         <div class="container center white-text">
-          {{#each patients as |patient|}}
-            {{> patient-details}}
+          {{#each rooms as |rooms|}}
+            {{> rooms-details}}
           {{/each}}
         </div>
       </div>
       <div class="card-action">
+        <a href="/patients">Patients</a>
         <a href="/personnel">Personnel</a>
-        <a href="/rooms">Rooms</a>
       </div>
     </div>
   </div>
