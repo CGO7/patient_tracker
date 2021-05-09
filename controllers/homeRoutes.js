@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         logged_in: req.session.logged_in
       });
     } else {
-      res.render('homepage', 
+      res.render('homepage',
       // patients
       );
     }
@@ -86,12 +86,25 @@ router.get('/personnel', withAuth, async (req, res) => {
 router.get('/personnel/:id', withAuth, async (req, res) => {
   try {
     const personnelData = await Personnel.findByPk(req.params.id, {
+      include: [
+        {
+          model: Room,
+          through: StaffLocation,
+          as: 'room_staff'
+        },
+      ]
     });
+
+    const roomData = await Room.findAll();
 
     const person = personnelData.get({ plain: true });
 
+    const rooms = roomData.map((rooms) => rooms.get({ plain: true }));
+
+
     res.render('personnel', {
       person,
+      rooms,
       logged_in: true
     });
   } catch (err) {
