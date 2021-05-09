@@ -1,61 +1,7 @@
 const router = require('express').Router();
-const {Patient, Room, Personnel, Service,} = require('../../models');
+const {Patient} = require('../../models');
 
 // The `/api/patients endpoint
-
-// get all patients
-// router.get('/', (req, res) => {
-//   // find all patients
-//   // be sure to include its associated room, Personnel, service, and lab data
-//   Patient.findAll({
-//     include: [
-//       { model: Room },
-//       {
-//         model: Personnel,
-//         attributes: ['id', 'job_title', 'name', 'surgery_id']
-//       },
-//       { model: Service },
-//     ]
-//   })
-//     .then(dbPatientData => res.json(dbPatientData))
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
-// get one patient
-router.get('/:id', (req, res) => {
-  // find a single patient by its `id`
-  // be sure to include its associated Category and Tag data
-  Patient.findOne({
-    where: {
-      id: req.params.id
-    },
-    include: [
-      {
-        model: Room,
-      },
-      {
-        model: Personnel,
-        through: PatientStaff,
-        as: 'medical_staff'
-      },
-      { model: Service },
-    ]
-  })
-    .then(dbPatientData => {
-      if (!dbPatientData) {
-        res.status(404).json({ message: 'No patient with this id found'});
-        return;
-      }
-      res.json(dbPatientData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
 
 // create new patientt
 router.post('/', (req, res) => {
