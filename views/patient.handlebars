@@ -13,8 +13,11 @@
             Date of Birth: {{format_date patient.dateOfBirth}}
         </div>
         <div class="gender">
-            Gender: {{patient.gender}}
-            <!-- there might be complications here -->
+        {{#if patient.gender}}
+            Gender: Male
+            {{else}}
+            Gender: Female
+        {{/if}}
         </div>
         <div class="drug_allergies">
             Drug Allergies: {{patient.drug_allergies}}
