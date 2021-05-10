@@ -57,10 +57,17 @@ router.get('/personnel/:id', withAuth, async (req, res) => {
       ]
     });
 
+    const serviceData = await Service.findAll();
+    const roomData = await Room.findAll();
+
     const person = personnelData.get({ plain: true });
+    const service = serviceData.map((service) => service.get({ plain: true}));
+    const rooms = roomData.map((rooms) => rooms.get({ plain: true }));
 
     res.render('personnel', {
       person,
+      service,
+      rooms,
       logged_in: req.session.logged_in
     });
   } catch (err) {
