@@ -5,7 +5,7 @@ const Patient = require('./Patient');
 const Personnel = require('./Personnel');
 const PatientStaff = require('./PatientStaff');
 const ServiceLocation = require('./ServiceLocation');
-const StaffService = require('./StaffService')
+const StaffService = require('./StaffService');
 
 Personnel.belongsToMany(Patient, {
   through: {

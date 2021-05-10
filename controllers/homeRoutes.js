@@ -47,29 +47,20 @@ router.get('/personnel/:id', withAuth, async (req, res) => {
         {
           model: Service,
           through: StaffService,
-          as: 'service_staff'
-        },
-        {
-          model: Room,
-          through: ServiceLocation,
-          as: 'room_service'
+          as: 'service_staff',
+          include: [{
+            model: Room,
+            through: ServiceLocation,
+            as: 'room_service',
+          }],
         },
       ]
     });
 
-    const serviceData = await Service.findAll();
-    const roomData = await Room.findAll();
-
     const person = personnelData.get({ plain: true });
-
-    const service = serviceData.map((service) => service.get({ plain: true}));
-    const rooms = roomData.map((rooms) => rooms.get({ plain: true }));
-
 
     res.render('personnel', {
       person,
-      service,
-      rooms,
       logged_in: req.session.logged_in
     });
   } catch (err) {
