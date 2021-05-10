@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 class ServiceLocation extends Model {}
 
 // create fields/columns for ServiceLocation model
-StaffLocation.init(
+ServiceLocation.init(
   {
     id: {
       type: DataTypes.INTEGER,
