@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our StaffLocation model
-class StaffLocation extends Model {}
+// create our ServiceLocation model
+class ServiceLocation extends Model {}
 
-// create fields/columns for StaffLocation model
+// create fields/columns for ServiceLocation model
 StaffLocation.init(
   {
     id: {
@@ -21,10 +21,10 @@ StaffLocation.init(
         // unique: false
       }
     },
-    personnel_id: {
+    service_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'personnel',
+        model: 'service',
         key: 'id',
         // unique: false
       }
@@ -35,8 +35,8 @@ StaffLocation.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'stafflocation'
+    modelName: 'servicelocation'
   }
 );
 
-module.exports = StaffLocation;
+module.exports = ServiceLocation;
