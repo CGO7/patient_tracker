@@ -20,11 +20,11 @@ const seedAll = async () => {
     await seedService();
     console.log('\n----- SERVICE SEEDED -----\n');
 
-    await seedStaffService();
-    console.log('\n----- STAFFSERVICE SEEDED -----\n');
-
     await seedPersonnel();
     console.log('\n----- PERSONNEL SEEDED -----\n');
+
+    await seedStaffService();
+    console.log('\n----- STAFFSERVICE SEEDED -----\n');
 
     await seedPatients();
     console.log('\n----- PATIENT SEEDED -----\n');
