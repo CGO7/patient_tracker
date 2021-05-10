@@ -1,4 +1,4 @@
-<div class="replace-me">
+{{!-- <div class="replace-me">
     <div class="wrap">
         {{!-- This is placeholder code, the search bar is not fully functional yet --}}
         <div class="search">
@@ -6,10 +6,46 @@
             <button type="submit" class="searchButton"> <i class="fa fa-search"></i></button>
         </div>
     </div>
-    <p>
-        <a href="/patients">Patient List</a>
-        <a href="/personnel">Personnel List</a>
-    </p>
+</div> --}}
+<div style="padding-top:10px; padding-bottom:25px" class="container center indigo">
+    <h3 class="white-text">
+        Welcome to Patient Tracker
+    </h3>
+    <h6 class="white-text">
+        Click a link below to get started
+    </h6>
+</div>
+<div style="margin-top: 10px;" class="row container center">
+    <div class="col s4">
+        <div class="card hoverable indigo">
+        <div class="card-content white-text">
+            <span class="card-title">Current Patient Info</span>
+        </div>
+        <div class="card-action">
+            <a href="/patients">Patients</a>
+        </div>
+        </div>
+    </div>
+    <div class="col s4">
+        <div class="card indigo">
+        <div class="card-content white-text">
+            <span class="card-title">Room Status</span>
+        </div>
+        <div class="card-action">
+            <a href="/rooms">Rooms</a>
+        </div>
+        </div>
+    </div>
+    <div class="col s4">
+        <div class="card indigo">
+        <div class="card-content white-text">
+            <span class="card-title">Staff Information</span>
+        </div>
+        <div class="card-action">
+            <a href="/personnel">Personnel</a>
+        </div>
+        </div>
+    </div>
 </div>
 {{!-- Link to js file --}}
 <script src="./js/search.js"></script>
