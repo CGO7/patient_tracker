@@ -95,6 +95,11 @@ router.get('/patients', withAuth, async (req, res) => {
   }
 });
 
+// add patient
+router.get('/patient/add', withAuth, (req, res) => {
+  res.render('add-patient');
+});
+
 // get one patient
 router.get('/patient/:id', withAuth, async (req, res) => {
   try {
@@ -112,6 +117,7 @@ router.get('/patient/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 // USER RELATED GET ROUTES
 
