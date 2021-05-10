@@ -17,13 +17,6 @@ Service.init(
     estimated_hours: {
       type: DataTypes.INTEGER,
     },
-    patient_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'patient',
-        key: 'id',
-      }
-    },
   },
   {
     sequelize,

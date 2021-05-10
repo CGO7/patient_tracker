@@ -4,7 +4,8 @@ const Service = require('./Service');
 const Patient = require('./Patient');
 const Personnel = require('./Personnel');
 const PatientStaff = require('./PatientStaff');
-const StaffLocation = require('./StaffLocation');
+const ServiceLocation = require('./ServiceLocation');
+const StaffService = require('./StaffService')
 
 Personnel.belongsToMany(Patient, {
   through: {
@@ -28,20 +29,36 @@ Room.hasMany(Patient, {
 
 Patient.belongsTo(Room);
 
-Room.belongsToMany(Personnel, {
+Room.belongsToMany(Service, {
   through: {
-    model: StaffLocation,
+    model: ServiceLocation,
     unique: false,
   },
-  as: 'room_staff'
+  as: 'room_service'
 });
 
-Personnel.belongsToMany(Room, {
+Service.belongsToMany(Room, {
   through: {
-    model: StaffLocation,
+    model: ServiceLocation,
     unique: false,
   },
-  as: 'room_staff'
+  as: 'room_service'
+});
+
+Service.belongsToMany(Personnel, {
+  through: {
+    model: StaffService,
+    unique: false,
+  },
+  as: 'service_staff'
+});
+
+Personnel.belongsToMany(Service, {
+  through: {
+    model: StaffService,
+    unique: false,
+  },
+  as: 'service_staff'
 });
 
 Patient.hasMany(Service, {
@@ -50,4 +67,4 @@ Patient.hasMany(Service, {
 
 Service.belongsTo(Patient);
 
-module.exports = { User, Patient, Room, Service, Personnel, PatientStaff, StaffLocation };
+module.exports = { User, Patient, Room, Service, Personnel, PatientStaff, ServiceLocation, StaffService };

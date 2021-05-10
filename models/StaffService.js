@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our StaffLocation model
-class StaffLocation extends Model {}
+// create our StaffService model
+class StaffService extends Model {}
 
-// create fields/columns for StaffLocation model
-StaffLocation.init(
+// create fields/columns for StaffService model
+StaffService.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,7 +13,7 @@ StaffLocation.init(
       primaryKey: true,
       autoIncrement: true
     },
-    room_id: {
+    service_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'room',
@@ -39,4 +39,4 @@ StaffLocation.init(
   }
 );
 
-module.exports = StaffLocation;
+module.exports = StaffService;
