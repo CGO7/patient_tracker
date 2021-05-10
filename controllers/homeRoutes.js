@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Patient, User, PatientStaff, StaffLocation, Personnel, Room } = require('../models');
+const { Patient, PatientStaff, Personnel, Room, Service, ServiceLocation, StaffService, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // HOME PAGE ROUTE
@@ -45,22 +45,30 @@ router.get('/personnel/:id', withAuth, async (req, res) => {
     const personnelData = await Personnel.findByPk(req.params.id, {
       include: [
         {
+          model: Service,
+          through: StaffService,
+          as: 'service_staff'
+        },
+        {
           model: Room,
-          through: StaffLocation,
-          as: 'room_staff'
+          through: ServiceLocation,
+          as: 'room_service'
         },
       ]
     });
 
+    const serviceData = await Service.findAll();
     const roomData = await Room.findAll();
 
     const person = personnelData.get({ plain: true });
 
+    const service = serviceData.map((service) => service.get({ plain: true}));
     const rooms = roomData.map((rooms) => rooms.get({ plain: true }));
 
 
     res.render('personnel', {
       person,
+      service,
       rooms,
       logged_in: req.session.logged_in
     });
