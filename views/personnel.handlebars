@@ -10,14 +10,12 @@
         <div class="job-title">
             Job Title: {{person.job_title}}
         </div>
-        <!-- TODO adjust to show possible multiple rooms -->
         <div class="room-assignment">
             Room Currently Assigned:
             {{#each person.service_staff}}
             <p>{{room_service.[0].room_number}}</p>
             {{/each}}
         </div>
-        {{!-- Form to change room assignment: elements exist but don't show??? --}}
         <div class="input-field select-rooms">
             <form action="#">
                 <label for="room-updater">Update Room Assignment:</label>
@@ -27,7 +25,7 @@
                     {{> room-option}}
                     {{/each}}
                 </select>
-                <input type="submit">
+                <input class="waves-effect waves-light btn" type="submit">
             </form>
         </div>
     </section>
