@@ -98,7 +98,9 @@ router.get('/patients', withAuth, async (req, res) => {
 // get one patient
 router.get('/patient/:id', withAuth, async (req, res) => {
   try {
-    const patientData = await Patient.findByPk(req.params.id);
+    const patientData = await Patient.findByPk(req.params.id, {
+      include: [{ model: Room }]
+    });
 
     const patient = patientData.get({ plain: true });
 
