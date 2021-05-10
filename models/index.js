@@ -5,6 +5,7 @@ const Patient = require('./Patient');
 const Personnel = require('./Personnel');
 const PatientStaff = require('./PatientStaff');
 const StaffLocation = require('./StaffLocation');
+const StaffService = require('./StaffService')
 
 Personnel.belongsToMany(Patient, {
   through: {
@@ -44,10 +45,26 @@ Personnel.belongsToMany(Room, {
   as: 'room_staff'
 });
 
+Service.belongsToMany(Personnel, {
+  through: {
+    model: StaffService,
+    unique: false,
+  },
+  as: 'service_staff'
+});
+
+Personnel.belongsToMany(Service, {
+  through: {
+    model: StaffService,
+    unique: false,
+  },
+  as: 'service_staff'
+});
+
 Patient.hasMany(Service, {
   foreignKey: 'patient_id',
 });
 
 Service.belongsTo(Patient);
 
-module.exports = { User, Patient, Room, Service, Personnel, PatientStaff, StaffLocation };
+module.exports = { User, Patient, Room, Service, Personnel, PatientStaff, StaffLocation, StaffService };
