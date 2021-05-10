@@ -2,7 +2,8 @@ const sequelize = require('../config/connection');
 const seedRooms = require('./room_seeds');
 const seedPersonnel = require('./personnel_seeds');
 const seedPatients = require('./patient_seeds');
-const seedService = require('./service_seeds')
+const seedService = require('./service_seeds');
+const seedStaffService = require('./staffService_seeds');
 const seedServiceLocation = require('./serviceLocation_seeds');
 const seedPatientStaff = require('./patientStaff_seeds');
 const seedUsers = require('./user_seeds');
@@ -18,6 +19,9 @@ const seedAll = async () => {
 
     await seedService();
     console.log('\n----- SERVICE SEEDED -----\n');
+
+    await seedStaffService();
+    console.log('\n----- STAFFSERVICE SEEDED -----\n');
 
     await seedPersonnel();
     console.log('\n----- PERSONNEL SEEDED -----\n');
