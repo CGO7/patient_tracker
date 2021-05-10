@@ -20,14 +20,18 @@
     </section>
     <section class="card indigo white-text">
         <div class="room-service">
-            <p>Surgery:
-            {{room.service}}</p>
+            <p>
+                Surgery: {{room.room_service.[0].surgery_type}}
+            </p>
+            <p>Estimated time (in hours):
+                {{room.room_service.[0].estimated_hours}}
+            </p>
         </div>
     </section>
     <section class="card indigo white-text">
         <div class="staff-service">
             <p>Staff Assigned to room:</p>
-            {{#each room.room_staff as |staff|}}
+            {{#each room.room_service.[0].service_staff as |staff|}}
                 {{> personnel-details}}
             {{/each}}
         </div>

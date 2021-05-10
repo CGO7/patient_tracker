@@ -166,9 +166,14 @@ router.get('/room/:id', withAuth, async (req, res) => {
     const roomData = await Room.findByPk(req.params.id, {
       include: [
         { model: Patient},
-        { model: Personnel,
-          through: StaffLocation,
-          as: 'room_staff'
+        { model: Service,
+          through: ServiceLocation,
+          as: 'room_service',
+          include: [
+            { model: Personnel,
+              through: StaffService,
+              as: 'service_staff'}
+          ]
         },
       ]
     });
