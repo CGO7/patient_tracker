@@ -19,7 +19,13 @@
         </div>
     </section>
     <section class="card indigo white-text">
-        <div class="room-staff">
+        <div class="room-service">
+            <p>Surgery:
+            {{room.service}}</p>
+        </div>
+    </section>
+    <section class="card indigo white-text">
+        <div class="staff-service">
             <p>Staff Assigned to room:</p>
             {{#each room.room_staff as |staff|}}
                 {{> personnel-details}}

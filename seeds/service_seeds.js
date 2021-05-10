@@ -2,23 +2,23 @@ const { Service } = require('../models');
 
 const serviceData = [
   {
-    service_type: "Tonsillectomy",
+    surgery_type: "Tonsillectomy",
     estimated_hours: 2,
   },
   {
-    service_type: "Hernia Repair",
+    surgery_type: "Hernia Repair",
     estimated_hours: 3,
   },
   {
-    service_type: "Gallbladder Removal",
+    surgery_type: "Gallbladder Removal",
     estimated_hours: 1,
   },
   {
-    service_type: "Cataract",
+    surgery_type: "Cataract",
     estimated_hours: 1,
   },
   {
-    service_type: "Biopsy",
+    surgery_type: "Biopsy",
     estimated_hours: 1,
   },
 ];

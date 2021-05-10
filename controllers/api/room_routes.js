@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Room, Patient, Personnel } = require('../../models');
+const { Room, Patient, Personnel, Service } = require('../../models');
 
 // The `/api/Rooms` endpoint
 
@@ -11,6 +11,10 @@ router.get('/', (req, res) => {
       {
         model: Patient,
         attributes: ['id', 'first_name', 'last_name']
+      },
+      {
+        model: Service,
+        attributes: ['id', 'surgery_type', 'estimated_hours']
       },
       {
         model: Personnel,
@@ -38,6 +42,10 @@ router.get('/:id', (req, res) => {
       {
         model: Patient,
         attributes: ['id', 'first_name', 'last_name']
+      },
+      {
+        model: Service,
+        attributes: ['id', 'surgery_type', 'estimated_hours']
       },
       {
         model: Personnel,
