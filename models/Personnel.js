@@ -14,7 +14,7 @@ Personnel.init(
     job_title: {
       type: DataTypes.ENUM,
       allowNull: false,
-      values: ['Surgeon', 'Rad Tech', 'Surgical Tech', 'Nurse', 'Turnover Team'],
+      values: ['Surgeon', 'Anesthesiologist', 'Surgical Tech', 'Nurse', 'Turnover Team'],
     },
     name: {
       type: DataTypes.STRING,

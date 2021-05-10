@@ -7,7 +7,7 @@ const personnelData = [
     phone_number: '555-867-5309',
   },
   {
-    job_title: 'Rad Tech',
+    job_title: 'Anesthesiologist',
     name: 'Ron Ravolta',
     phone_number: '555-438-2368',
   },
@@ -27,7 +27,7 @@ const personnelData = [
     phone_number: '555-123-4567',
   },
   {
-    job_title: 'Rad Tech',
+    job_title: 'Anesthesiologist',
     name: 'Bort Simpson',
     phone_number: '555-098-7654',
   },
