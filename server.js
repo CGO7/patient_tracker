@@ -36,10 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 app.use(express.static('images'));
-// Route to display static src images
-app.get("/static", (req, res) => {
-  res.render("static");
-});
+app.use(express.static('public'));
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
