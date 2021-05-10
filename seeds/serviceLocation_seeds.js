@@ -1,32 +1,28 @@
-const { StaffLocation } = require('../models');
+const { ServiceLocation } = require('../models');
 
-const staffLocData = [
+const serviceLocData = [
   {
     room_id: 2,
-    personnel_id: 5,
-  },
-  {
-    room_id: 2,
-    personnel_id: 9,
+    service_id: 1,
   },
   {
     room_id: 3,
-    personnel_id: 4,
+    service_id: 2,
   },
   {
     room_id: 6,
-    personnel_id: 7,
+    service_id: 3,
   },
   {
     room_id: 1,
-    personnel_id: 6,
+    service_id: 4,
   },
   {
     room_id: 5,
-    personnel_id: 10,
+    service_id: 5,
   },
 ];
 
-const seedStaffLocation = () => StaffLocation.bulkCreate(staffLocData);
+const seedServiceLocation = () => ServiceLocation.bulkCreate(serviceLocData);
 
-module.exports = seedStaffLocation;
+module.exports = seedServiceLocation;
