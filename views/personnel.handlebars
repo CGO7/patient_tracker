@@ -1,5 +1,5 @@
 <div class="container">
-    <section class="card indigo white-text">
+    <section class="card indigo white-text z-depth-5">
         <header>Staff Member</header>
         <div class="personnel-name">
             Name: {{person.name}}
@@ -10,26 +10,25 @@
         <div class="job-title">
             Job Title: {{person.job_title}}
         </div>
-        <!-- TODO adjust to show possible multiple rooms -->
         <div class="room-assignment">
-            Room Currently Assigned: 
+            Room Currently Assigned:
             {{#each person.service_staff}}
-                <p>{{room_service.[0].room_number}}</p>
+            <p>{{room_service.[0].room_number}}</p>
             {{/each}}
         </div>
-        {{!-- Form to change room assignment: elements exist but don't show??? --}}
-        <form action="#">
-            <label for="room-updater">Update Room Assignment:</label>
-            <select id="room-updater" name="room-updater" size="5" multiple>
-                {{#each person.service_staff as |room|}}
-                {{> room-option}}
-                {{/each}}
-            </select><br /><br />
-            <input type="submit">
-        </form>
-        {{!-- follow the white rabbit --}}
-        {{!-- <div class="test">
-            {{log person.service_staff.[0].room_service.room_number}}
-        </div> --}}
+        <div class="input-field select-rooms">
+            <form action="#">
+                <label for="room-updater">Update Room Assignment:</label>
+                <select multiple size="4">
+                    <option value="" disabled selected>Control or Command + LeftClick</option>
+                    {{#each person.service_staff as |room|}}
+                    {{> room-option}}
+                    {{/each}}
+                </select>
+                <input class="waves-effect waves-light btn" type="submit">
+            </form>
+        </div>
     </section>
 </div>
+
+<script src="/js/updateRoom.js"></script>

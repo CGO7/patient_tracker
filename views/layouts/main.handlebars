@@ -17,32 +17,51 @@
     <nav class="navbar blue navbar-expand-lg navbar-light bg-secondary">
         <div class="container-fluid">
             <a class="brand-logo center" href="/">Patient Tracker</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                     {{#if logged_in}}
-                        <a class="nav-link" href="/patients">Patients</a>
-                        <a class="nav-link" href="/rooms">Rooms</a>
-                        <a class="nav-link" id="logout" href="/logout">Logout</a>
+                    <a class="nav-link" href="/patients">Patients</a>
+                    <a class="nav-link" href="/rooms">Rooms</a>
+                    <a class="nav-link" id="logout" href="/logout">Logout</a>
 
-                        <script src="/js/logout.js"></script>
+                    <script src="/js/logout.js"></script>
                     {{/if}}
                 </div>
             </div>
         </div>
     </nav>
     <div class="center-align">
-        <img src="../images/logo.jpeg" style="height:150px; width:150px">
+        <a href="/search">
+            <img class="hoverable" src="/images/logo.jpeg" style="height:150px; width:150px">
+        </a>
     </div>
-    <div style="background-image: url('../images/facility.jpg'); height:787px;">
-    {{{body}}}
+    <div style="background-image: url('/images/facility.jpg');">
+        {{{body}}}
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Patient Tracker</h5>
+                    <p class="grey-text text-lighten-4">Property of Leticia Mendiola, John Hinojosa, Chris Goslin</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 Copyright
+                <a class="grey-text text-lighten-4 right" href="https://github.com/CGO7/patient_tracker">GitHub</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
