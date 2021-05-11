@@ -34,7 +34,7 @@ Patient.init(
     zip_code: {
       type: DataTypes.STRING(10),
     },
-    dateOfBirth: {
+    date_of_birth: {
       type: DataTypes.DATE,
     },
     // TRUE (1) - Male; False (0) - Female; NULL - Other;
