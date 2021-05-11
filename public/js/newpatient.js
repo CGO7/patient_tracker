@@ -6,19 +6,19 @@ const patientFormHandler = async (event) => {
   const last_name = document.querySelector('#last-name').value.trim();
   const phone_number = document.querySelector('#phone-number').value.trim();
   const date_of_birth = document.querySelector('#dob').value.trim();
-  const gender = document.querySelector('#gender').value;
+  const gender = document.querySelector('input[name="gender"]:checked').id;
   const drug_allergies = document.querySelector('#drug-allergies').value.trim();
   const insurance = document.querySelector('#insurance').value.trim();
   const address = document.querySelector('#address').value.trim();
   const city = document.querySelector('#city').value.trim();
   const state = document.querySelector('#state').value.trim();
-  const zip = document.querySelector('#zip').value.trim();
+  const zip_code = document.querySelector('#zip').value.trim();
 
   try {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/patient/add', {
+    const response = await fetch('/api/patients', {
       method: 'POST',
-      body: JSON.stringify({ first_name, last_name, phone_number, date_of_birth, gender, drug_allergies, insurance, address, city, state, zip }),
+      body: JSON.stringify({ first_name, last_name, phone_number, date_of_birth, gender, drug_allergies, insurance, address, city, state, zip_code }),
       headers: { 'Content-Type': 'application/json' },
     });
 

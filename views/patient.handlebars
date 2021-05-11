@@ -12,14 +12,10 @@
             Phone Number: {{patient.phone_number}}
         </div>
         <div class="birthdate">
-            Date of Birth: {{format_date patient.dateOfBirth}}
+            Date of Birth: {{format_date patient.date_of_birth}}
         </div>
         <div class="gender">
-        {{#if patient.gender}}
-            Gender: Male
-            {{else}}
-            Gender: Female
-        {{/if}}
+        Gender: {{logGender patient.gender}}
         </div>
         <div class="drug_allergies">
             Drug Allergies: {{patient.drug_allergies}}

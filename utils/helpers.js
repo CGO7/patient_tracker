@@ -9,5 +9,14 @@ module.exports = {
       return true;
     }
     return false;
+  },
+  logGender: (gender) => {
+    if (gender === true) {
+      return 'Male';
+    } else if (gender === false) {
+      return 'Female';
+    } else {
+      return 'None';
+    }
   }
 };

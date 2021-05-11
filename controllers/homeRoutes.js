@@ -81,7 +81,7 @@ router.get('/personnel/:id', withAuth, async (req, res) => {
 router.get('/patients', withAuth, async (req, res) => {
   try {
     const patientData = await Patient.findAll({
-      attributes: { include: ['first_name', 'last_name', 'dateOfBirth'] },
+      attributes: { include: ['first_name', 'last_name', 'date_of_birth'] },
     });
 
     const patients = patientData.map((patient) => patient.get({ plain: true }));
